@@ -102,7 +102,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="4Tm-IS-s4f" id="U9z-vp-8Po"/>
+                                    <outlet property="delegate" destination="4Tm-IS-s4f" id="Nwi-3k-2rD"/>
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ew2-Iq-ZWd">
@@ -111,8 +111,11 @@
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4Tm-IS-s4f" id="f8j-UW-enV"/>
+                                </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjE-Vb-Lwf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjE-Vb-Lwf">
                                 <rect key="frame" x="282" y="526" width="36" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Clear"/>
@@ -126,6 +129,8 @@
                         <constraints>
                             <constraint firstItem="X02-7W-VAU" firstAttribute="top" secondItem="DmH-cK-8bB" secondAttribute="bottom" constant="30" id="EFG-S5-pPd"/>
                             <constraint firstItem="Ew2-Iq-ZWd" firstAttribute="top" secondItem="X02-7W-VAU" secondAttribute="bottom" constant="40" id="JqZ-ER-pzt"/>
+                            <constraint firstItem="BjE-Vb-Lwf" firstAttribute="centerX" secondItem="XuS-WA-aZd" secondAttribute="centerX" id="P42-cK-oWV"/>
+                            <constraint firstItem="BjE-Vb-Lwf" firstAttribute="bottom" secondItem="v4Z-yZ-8pD" secondAttribute="top" id="RCS-fH-Pcr"/>
                             <constraint firstItem="Ew2-Iq-ZWd" firstAttribute="top" secondItem="DmH-cK-8bB" secondAttribute="bottom" constant="100" id="aad-Se-anT"/>
                             <constraint firstItem="Ew2-Iq-ZWd" firstAttribute="leading" secondItem="XuS-WA-aZd" secondAttribute="leadingMargin" id="fCr-Ck-Plr"/>
                             <constraint firstItem="X02-7W-VAU" firstAttribute="trailing" secondItem="XuS-WA-aZd" secondAttribute="trailingMargin" id="pbg-27-Ash"/>
@@ -144,11 +149,28 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bodyTextField" destination="Ew2-Iq-ZWd" id="jtg-Gu-fFs"/>
+                        <outlet property="bodyTextField" destination="Ew2-Iq-ZWd" id="L3i-nG-CQw"/>
+                        <outlet property="keyboardToolbar" destination="krr-TH-G0u" id="dGc-LL-exA"/>
                         <outlet property="titleTextField" destination="X02-7W-VAU" id="Nti-aU-URE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czK-PN-OaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="krr-TH-G0u">
+                    <rect key="frame" x="0.0" y="0.0" width="596" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <animations/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="WEe-0k-QSj"/>
+                        <barButtonItem title="Done" id="6NI-Ql-aZd">
+                            <connections>
+                                <action selector="keyboardDoneButtonPressed:" destination="4Tm-IS-s4f" id="IXV-lF-dWc"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="4Tm-IS-s4f" id="KfH-3O-HAU"/>
+                    </connections>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="1652" y="1009"/>
         </scene>

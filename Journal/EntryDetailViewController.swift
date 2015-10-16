@@ -13,16 +13,18 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextField: UITextView!
     var entry: Entry?
+    @IBOutlet var keyboardToolbar: UIToolbar!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        bodyTextField.inputAccessoryView = keyboardToolbar
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func  updateWithEntry(entry: Entry) {
@@ -48,6 +50,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
             self.entry = newEntry
         }
         self.navigationController?.popViewControllerAnimated(true)
+        
     }
     
     @IBAction func clearEntry(sender: AnyObject) {
@@ -63,5 +66,8 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func keyboardDoneButtonPressed(sender: AnyObject) {
+        bodyTextField.resignFirstResponder()
+    }
 
 }

@@ -49,7 +49,8 @@ class EntryListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            EntryController.sharedController.entries.removeAtIndex(indexPath.row)
+            let entry = EntryController.sharedController.entries[indexPath.row]
+            EntryController.sharedController.removeEntry(entry)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
