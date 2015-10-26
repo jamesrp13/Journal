@@ -27,11 +27,14 @@ class EntryListViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+        EntryController.sharedController.saveToPersistentStorage()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return EntryController.sharedController.entries.count
     }
+
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("entryCell", forIndexPath: indexPath)
@@ -43,8 +46,14 @@ class EntryListViewController: UIViewController, UITableViewDataSource, UITableV
         dateFormatter.dateFormat = "MM/dd/yy hh:mm:ss"
         let dateString = dateFormatter.stringFromDate(timeStamp)
         cell.detailTextLabel?.text = dateString
+        cell.backgroundColor = entry.randomColor
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.dequeueReusableCellWithIdentifier("entryCell", forIndexPath: indexPath)
+        cell.detailTextLabel?.backgroundColor = UIColor.lightGrayColor()
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

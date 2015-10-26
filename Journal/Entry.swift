@@ -6,6 +6,7 @@
 //  Copyright © 2015 DevMountain. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class Entry: Equatable {
@@ -13,7 +14,9 @@ class Entry: Equatable {
     static let timeStampKey = "timeStampKey"
     static let titleKey = "titleKey"
     static let bodyKey = "bodyKey"
+//    static let colorKey = "colorKey"
     
+    let randomColor: UIColor = UIColor(red: CGFloat(arc4random_uniform(UInt32.max))/CGFloat(UInt32.max), green: CGFloat(arc4random_uniform(UInt32.max))/CGFloat(UInt32.max), blue: CGFloat(arc4random_uniform(UInt32.max))/CGFloat(UInt32.max), alpha: 1.0)
     var timeStamp: NSDate
     var title: String
     var body: String
@@ -46,7 +49,8 @@ class Entry: Equatable {
         let dictionary: Dictionary <String, AnyObject> = [
             Entry.timeStampKey: timeStamp,
             Entry.titleKey: title,
-            Entry.bodyKey: body
+            Entry.bodyKey: body,
+//            Entry.colorKey: randomColor
         ]
         return dictionary
     }
